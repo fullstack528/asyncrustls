@@ -1,0 +1,35 @@
+[package]
+name = "async-rustls"
+version = "0.2.0"
+authors = [
+  "Alex Crichton <alex@alexcrichton.com>",
+  "quininer kel <quininer@live.com>",
+  "Stjepan Glavina <stjepang@gmail.com>",
+]
+edition = "2018"
+description = "Async TLS/SSL streams using rustls"
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/smol-rs/async-rustls"
+homepage = "https://github.com/smol-rs/async-rustls"
+documentation = "https://docs.rs/async-rustls"
+keywords = ["rustls", "tls", "ssl", "synchronization"]
+categories = ["asynchronous", "cryptography", "network-programming"]
+
+[features]
+default = ["logging"]
+logging = ["rustls/logging"]
+dangerous_configuration = ["rustls/dangerous_configuration"]
+quic = ["rustls/quic"]
+
+[dependencies]
+futures-lite = "1.10.1"
+webpki = "0.21"
+
+[dependencies.rustls]
+version = "0.19"
+default-features = false
+
+[dev-dependencies]
+lazy_static = "1"
+smol = "1.2.3"
+webpki-roots = "0.20"
